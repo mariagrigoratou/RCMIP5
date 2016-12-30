@@ -221,7 +221,7 @@ loadEnsemble <- function(variable, model, experiment, ensemble, domain,
             
             # convert from days (we assume the units are days) to years
             thisTimeArr <- thisTimeRaw / calendarDayLength + startYr
-            testing <<- timeTimeArr
+            testing <<- thisTimeArr
         } else { # this is a fx variable. Set most things to NULL
             startYr <- NULL
             timeArr <- NULL
