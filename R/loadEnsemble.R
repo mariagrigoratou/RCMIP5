@@ -221,7 +221,11 @@ loadEnsemble <- function(variable, model, experiment, ensemble, domain,
             
             # convert from days (we assume the units are days) to years
             thisTimeArr <- thisTimeRaw / calendarDayLength + startYr
-            testing <<- thisTimeRaw
+          if(stringr::str_detect(calendarArr, "proleptic_gregorian"){
+          run_year <- lubridate::dmy("01/01/0001") + days(as.integer(thisTimeRaw))
+          thisTimeArr <- lubridate::year(run_year) + lubridate::day(run_year) / 365
+            }
+          
         } else { # this is a fx variable. Set most things to NULL
             startYr <- NULL
             timeArr <- NULL
