@@ -188,6 +188,11 @@ loadEnsemble <- function(variable, model, experiment, ensemble, domain,
                 calendarDayLength <- 365
             }
             test2 <<- calendarStr
+          
+                    if(stringr::str_detect(model, "ACCESS")){
+            calendarDayLength <- 365.2416
+            }
+
             # Extract the year we are referencing in calendar
             # Set the default to year 1, month 1, day 1, hour 0, min 0, sec 0
             defaultCalendarArr <- c(1, 1, 1, 0, 0, 0)
@@ -222,10 +227,6 @@ loadEnsemble <- function(variable, model, experiment, ensemble, domain,
             # convert from days (we assume the units are days) to years
             thisTimeArr <- thisTimeRaw / calendarDayLength + startYr
           
-          if(stringr::str_detect(model, "ACCESS")){
-          run_year <- lubridate::dmy("01/01/0001") + days(as.integer(thisTimeRaw))
-          thisTimeArr <- lubridate::year(run_year) + lubridate::day(run_year) / 365
-            }
           test2 <<- thisTimeArr
           
         } else { # this is a fx variable. Set most things to NULL
