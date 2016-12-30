@@ -314,7 +314,12 @@ loadEnsemble <- function(variable, model, experiment, ensemble, domain,
             }
             
             timeRaw <- c(timeRaw, thisTimeRaw)
-            timeArr <- c(timeArr, thisTimeRaw / calendarDayLength + startYr)
+          
+           if(stringr::str_detect(model, "ACCESS")){
+          run_year <- lubridate::dmy("01/01/0001") + days(as.integer(thisTimeRaw))
+          newtimeArr <- lubridate::year(run_year) + lubridate::day(run_year) / 365
+            }
+            timeArr <- c(timeArr, ifelse(stringr::str_detect(model, "ACCESS"),newtimeArr, thisTimeRaw / calendarDayLength + startYr))
         }
         
         # Finally, load the actual data and its units
