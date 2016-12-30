@@ -327,6 +327,8 @@ loadEnsemble <- function(variable, model, experiment, ensemble, domain,
         # inserting NAs into dimNames to mark what wasn't present in file
         temp <- restoreMissingDims(dim(vardata), dimNames, lonArr, latArr, ZArr,
                                    thisTimeRaw, verbose)
+         test2 <<- thisTimeRaw
+          
         vardata <- array(vardata, dim=temp[["dims"]])
         dimNames <- temp[["dimNames"]]
         
