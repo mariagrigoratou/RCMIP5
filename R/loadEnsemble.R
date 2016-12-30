@@ -214,7 +214,7 @@ loadEnsemble <- function(variable, model, experiment, ensemble, domain,
             startYr <- sum((calendarArr - c(0, 1, 1, 0, 0, 0))
                            / c(1, 12, calendarDayLength, calendarDayLength*24,
                                calendarDayLength*24*60, calendarDayLength*24*60*60))
-            
+            print(startYr)
             # Load the actual time
             thisTimeRaw <- .ncvar_get(nc, varid=timeName)
             attributes(thisTimeRaw) <- NULL
