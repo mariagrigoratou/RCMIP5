@@ -226,7 +226,7 @@ loadEnsemble <- function(variable, model, experiment, ensemble, domain,
           run_year <- lubridate::dmy("01/01/0001") + days(as.integer(thisTimeRaw))
           thisTimeArr <- lubridate::year(run_year) + lubridate::day(run_year) / 365
             }
-          test2 <<- model
+          test2 <<- thisTimeArr
           
         } else { # this is a fx variable. Set most things to NULL
             startYr <- NULL
