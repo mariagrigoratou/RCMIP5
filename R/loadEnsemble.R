@@ -304,6 +304,7 @@ loadEnsemble <- function(variable, model, experiment, ensemble, domain,
             # Trim the already-loaded time arrays to match
             thisTimeArr <- thisTimeArr[tstart:tend]
             thisTimeRaw <- thisTimeRaw[tstart:tend]
+              test3 <<- tstart
         } # if year range
         
         # Update running time data
