@@ -187,7 +187,7 @@ loadEnsemble <- function(variable, model, experiment, ensemble, domain,
             } else {
                 calendarDayLength <- 365
             }
-            
+            test2 <<- calendarStr
             # Extract the year we are referencing in calendar
             # Set the default to year 1, month 1, day 1, hour 0, min 0, sec 0
             defaultCalendarArr <- c(1, 1, 1, 0, 0, 0)
