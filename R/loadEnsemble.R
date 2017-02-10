@@ -196,6 +196,9 @@ loadEnsemble <- function(variable, model, experiment, ensemble, domain,
           # Some of the year lengths for models are wrong
             if(stringr::str_detect(model, "EC-EARTH") | stringr::str_detect(model,"CNRM-CM5")| stringr::str_detect(model,"MPI-ESM") 
               | stringr::str_detect(model,"GFDL-CM2")
+               | stringr::str_detect(model,"MIROC-ESM")
+               | stringr::str_detect(model,"MRI-CGCM3")
+               | stringr::str_detect(model,"MRI-ESM1")
               ){
             calendarDayLength <- 365.25
             }
