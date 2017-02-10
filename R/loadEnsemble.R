@@ -192,6 +192,12 @@ loadEnsemble <- function(variable, model, experiment, ensemble, domain,
                     if(stringr::str_detect(model, "ACCESS")){
             calendarDayLength <- 365.2416
             }
+          # More hacking....
+          # Some of the year lengths for models are wrong
+            if(stringr::str_detect(model, "EC-EARTH")){
+            calendarDayLength <- 365.25
+            }
+
             testCalendarDayLength <<- calendarDayLength
             # Extract the year we are referencing in calendar
             # Set the default to year 1, month 1, day 1, hour 0, min 0, sec 0
